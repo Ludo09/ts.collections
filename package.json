@@ -1,0 +1,22 @@
+{
+  "name": "ttsl",
+  "version": "0.0.1",
+  "description": "A Tiny Typescript Standard Library (ttsl)",
+  "devDependencies": {
+    "browserify": "latest",
+    "karma": "latest",
+    "karma-chrome-launcher": "latest",
+    "karma-commonjs": "latest",
+    "karma-jasmine": "~2.0",
+    "uniq": "^1.0.1"
+  },
+  "scripts": {
+    "build": "browserify src/**.js > ttsl.js",
+    "build:min": "browserify src/**.js | uglifyjs > ttsl.min.js",
+    "test": "karma start karma.conf.js"
+  },
+  "license": "Apache",
+  "contributors": [
+    "Ludo09 <ludo09@gmail.com>"
+  ]
+}
