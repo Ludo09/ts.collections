@@ -2,89 +2,89 @@
 
 import {collections as coll} from '../../src/collections/list';
 
-describe('Test List', function () {
-    var list = null;
+describe('Test List', ()=> {
+    let list = null;
 
-    beforeEach(function () {
+    beforeEach(()=> {
         list = new coll.List<number>();
     });
 
-    afterEach(function () {
+    afterEach(()=> {
         list = null;
     });
 
-    it('should be created', function () {
+    it('should be created', ()=> {
         expect(list).not.toBeNull();
     });
 
-    it('should be empty when created', function () {
+    it('should be empty when created', ()=> {
         expect(list.empty()).toBe(true);
     });
 
-    it('should not be empty when one element is appended', function () {
+    it('should not be empty when one element is appended', ()=> {
         list.append(5);
         expect(list.empty()).toBe(false);
     });
 
-    it('should have 0-size when created', function () {
+    it('should have 0-size when created', ()=> {
         expect(list.size()).toEqual(0);
     });
 
-    it('should increase size when elements are added', function () {
+    it('should increase size when elements are added', ()=> {
         list.append(5);
         expect(list.size()).toEqual(1);
         list.append(6);
         expect(list.size()).toEqual(2);
     });
 
-    it('should throw proper exception when out of bounds', function () {
-        expect(function () {
+    it('should throw proper exception when out of bounds', ()=> {
+        expect(()=> {
             list.get(-3);
         }).toThrow(new Error("Index out of bounds"));
 
         list.append(5);
-        expect(function () {
+        expect(()=> {
             list.get(2);
         }).toThrow(new Error("Index out of bounds"));
     });
 
-    it('should return correct values', function () {
+    it('should return correct values', ()=> {
         list.append(5);
         list.append(6);
         expect(list.get(0)).toEqual(5);
         expect(list.get(1)).toEqual(6);
     });
 
-    it('should throw proper exception when out of bounds', function () {
-        expect(function () {
+    it('should throw proper exception when out of bounds', ()=> {
+        expect(()=> {
             list.set(-3, 5);
         }).toThrow(new Error("Index out of bounds"));
 
         list.append(5);
-        expect(function () {
+        expect(()=> {
             list.set(2, 6);
         }).toThrow(new Error("Index out of bounds"));
     });
 
-    it('should replace value when set at existing position', function () {
+    it('should replace value when set at existing position', ()=> {
         list.append(5);
         expect(list.get(0)).toEqual(5);
         list.set(0, 6);
         expect(list.get(0)).toEqual(6);
     });
 
-    it('should throw proper exception when out of bounds', function () {
-        expect(function () {
+    it('should throw proper exception when out of bounds', ()=> {
+        expect(()=> {
             list.add(-3, 5);
         }).toThrow(new Error("Index out of bounds"));
 
         list.append(5);
-        expect(function () {
+        expect(()=> {
             list.add(2, 6);
         }).toThrow(new Error("Index out of bounds"));
     });
 
-    it('should replace value when set at existing position', function () {
+    it('should replace value when set at existing position', ()=> {
         list.append(5);
         list.append(6);
         list.append(7);
@@ -95,7 +95,7 @@ describe('Test List', function () {
         expect(list.get(3)).toEqual(7);
     });
 
-    it('should remove all of the elements when list is cleared out', function () {
+    it('should remove all of the elements when list is cleared out', ()=> {
         list.append(5);
         list.append(6);
         list.append(7);
@@ -104,18 +104,18 @@ describe('Test List', function () {
         expect(list.size()).toEqual(0);
     });
 
-    it('should throw proper exception when out of bounds', function () {
-        expect(function () {
+    it('should throw proper exception when out of bounds', ()=> {
+        expect(()=> {
             list.removeAt(-3);
         }).toThrow(new Error("Index out of bounds"));
 
         list.append(5);
-        expect(function () {
+        expect(()=> {
             list.removeAt(2);
         }).toThrow(new Error("Index out of bounds"));
     });
 
-    it('should throw proper exception when out of bounds', function () {
+    it('should throw proper exception when out of bounds', ()=> {
         list.append(5);
         list.append(6);
         list.removeAt(1);
@@ -123,36 +123,36 @@ describe('Test List', function () {
         expect(list.size()).toEqual(1);
     });
 
-    it('should remove nothing when element doesn\'t exist', function () {
+    it('should remove nothing when element doesn\'t exist', ()=> {
         list.append(5);
         list.append(6);
         list.remove(3);
         expect(list.size()).toEqual(2);
     });
 
-    it('should return index of -1 when element doesn\'t exist', function () {
+    it('should return index of -1 when element doesn\'t exist', ()=> {
         expect(list.indexOf(3)).toEqual(-1);
     });
 
-    it('should return proper index when element exists', function () {
+    it('should return proper index when element exists', ()=> {
         list.append(5);
         list.append(6);
         list.append(7);
         expect(list.indexOf(7)).toEqual(2);
     });
 
-    it('should return index of -1 when element doesn\'t exist', function () {
+    it('should return index of -1 when element doesn\'t exist', ()=> {
         expect(list.lastIndexOf(3)).toEqual(-1);
     });
 
-    it('should return proper last index when element exists', function () {
+    it('should return proper last index when element exists', ()=> {
         list.append(5);
         list.append(5);
         list.append(5);
         expect(list.lastIndexOf(5)).toEqual(2);
     });
 
-    it('should append all elements', function () {
+    it('should append all elements', ()=> {
         list.append(1);
         list.append(2);
         var l2 = new coll.List<number>();
@@ -164,18 +164,18 @@ describe('Test List', function () {
         expect(list.indexOf(4)).toEqual(3);
     });
 
-    it('should throw proper exception when out of bounds', function () {
-        expect(function () {
+    it('should throw proper exception when out of bounds', ()=> {
+        expect(()=> {
             list.addAll(-3, null);
         }).toThrow(new Error("Index out of bounds"));
 
         list.append(5);
-        expect(function () {
+        expect(()=> {
             list.addAll(2, null);
         }).toThrow(new Error("Index out of bounds"));
     });
 
-    it('should add all elements at specified position', function () {
+    it('should add all elements at specified position', ()=> {
         list.append(1);
         list.append(2);
         list.append(5);
@@ -189,22 +189,22 @@ describe('Test List', function () {
         expect(list.indexOf(5)).toEqual(4);
     });
 
-    it('should throw proper exception when out of bounds', function () {
-        expect(function () {
+    it('should throw proper exception when out of bounds', ()=> {
+        expect(()=> {
             list.subList(-3, 0);
         }).toThrow(new Error("Index out of bounds"));
 
-        expect(function () {
+        expect(()=> {
             list.subList(0, 3);
         }).toThrow(new Error("Index out of bounds"));
 
         list.append(5);
-        expect(function () {
+        expect(()=> {
             list.subList(1, 0);
         }).toThrow(new Error("Index out of bounds"));
     });
 
-    it('should add all elements at specified position', function () {
+    it('should add all elements at specified position', ()=> {
         list.append(1);
         list.append(2);
         list.append(3);
@@ -229,7 +229,7 @@ describe('Test List', function () {
         expect(list.contains(3)).toBe(true);
     });
 
-    it('should apply function for each entry', function () {
+    it('should apply function for each entry', ()=> {
         list.append(3);
         list.append(4);
         list.append(5);
@@ -259,7 +259,7 @@ describe('Test List', function () {
 
     it('should  throw error when iterate through empty list', function() {
         var it = list.iterator();
-        expect(function () {
+        expect(()=> {
             it.next();
         }).toThrow(new Error("No next element"));
     });

@@ -2,58 +2,58 @@
 
 import {collections as coll} from '../../src/collections/set';
 
-describe('Test Set', function () {
-    var set = null;
+describe('Test Set', ()=> {
+    let set = null;
 
-    beforeEach(function () {
+    beforeEach(()=> {
         set = new coll.Set<number>();
     });
 
-    afterEach(function () {
+    afterEach(()=> {
         set = null;
     });
 
-    it('should be created', function () {
+    it('should be created', ()=> {
         expect(set).not.toBeNull();
     });
 
-    it('should be empty when created', function () {
+    it('should be empty when created', ()=> {
         expect(set.empty()).toBe(true);
     });
 
-    it('should not be empty when one element is added', function () {
+    it('should not be empty when one element is added', ()=> {
         set.add(5);
         expect(set.empty()).toBe(false);
     });
 
-    it('should have 0-size when created', function () {
+    it('should have 0-size when created', ()=> {
         expect(set.size()).toEqual(0);
     });
 
-    it('should increase size when different elements are added', function () {
+    it('should increase size when different elements are added', ()=> {
         expect(set.add(5)).toBe(true);
         expect(set.size()).toEqual(1);
         expect(set.add(6)).toBe(true);
         expect(set.size()).toEqual(2);
     });
 
-    it('should not increase size when same elements are added twice', function () {
+    it('should not increase size when same elements are added twice', ()=> {
         expect(set.add(5)).toBe(true);
         expect(set.size()).toEqual(1);
         expect(set.add(5)).toBe(false);
         expect(set.size()).toEqual(1);
     });
 
-    it('should return false if set doesn\'t contain specified element', function () {
+    it('should return false if set doesn\'t contain specified element', ()=> {
         expect(set.contains(5)).toBe(false);
     });
 
-    it('should return true if set contains specified element', function () {
+    it('should return true if set contains specified element', ()=> {
         set.add(5);
         expect(set.contains(5)).toBe(true);
     });
 
-    it('should return true if set contains specified element', function () {
+    it('should return true if set contains specified element', ()=> {
         set.add(5);
         set.add(6);
         set.add(7);
@@ -62,13 +62,13 @@ describe('Test Set', function () {
         expect(set.empty()).toBe(true);
     });
 
-    it('should remove nothing if set doesn\'t contain specified element', function () {
+    it('should remove nothing if set doesn\'t contain specified element', ()=> {
         set.add(5);
         set.remove(6);
         expect(set.size()).toEqual(1);
     });
 
-    it('should remove specified element if found', function () {
+    it('should remove specified element if found', ()=> {
         set.add(5);
         set.add(6);
         set.remove(6);
@@ -76,7 +76,7 @@ describe('Test Set', function () {
         expect(set.contains(5)).toBe(true);
     });
 
-    it('should return entries array', function () {
+    it('should return entries array', ()=> {
         set.add(5);
         set.add(6);
         set.add(3);
@@ -87,7 +87,7 @@ describe('Test Set', function () {
         expect(a.indexOf(3) > -1).toBe(true);
     });
 
-    it('should return the difference with specified set', function () {
+    it('should return the difference with specified set', ()=> {
         set.add(1);
         set.add(2);
         set.add(3);
@@ -103,7 +103,7 @@ describe('Test Set', function () {
         expect(sd[1]).toEqual(7);
     });
 
-    it('should return the union with specified set', function () {
+    it('should return the union with specified set', ()=> {
         set.add(1);
         set.add(2);
         var s2 = new coll.Set<number>();
@@ -116,7 +116,7 @@ describe('Test Set', function () {
         expect(sd[2]).toEqual(3);
     });
 
-    it('should return the intersection with specified set', function () {
+    it('should return the intersection with specified set', ()=> {
         set.add(1);
         set.add(2);
         set.add(3);
@@ -133,7 +133,7 @@ describe('Test Set', function () {
         expect(sd[2]).toEqual(4);
     });
 
-    it('should return all possible subset as powerset', function () {
+    it('should return all possible subset as powerset', ()=> {
         set.add(1);
         set.add(2);
         var ps = set.powerSet().entries();

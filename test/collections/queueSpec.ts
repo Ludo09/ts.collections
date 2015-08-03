@@ -2,42 +2,42 @@
 
 import {collections as coll} from '../../src/collections/queue';
 
-describe('Test Queue', function () {
-    var queue = null;
+describe('Test Queue', ()=> {
+    let queue = null;
 
-    beforeEach(function () {
+    beforeEach(()=> {
         queue = new coll.Queue<string>();
     });
 
-    afterEach(function () {
+    afterEach(()=> {
         queue = null;
     });
 
-    it('should be created', function () {
+    it('should be created', ()=> {
         expect(queue).not.toBeNull();
     });
 
-    it('should be empty when created', function () {
+    it('should be empty when created', ()=> {
         expect(queue.empty()).toBe(true);
     });
 
-    it('should not be empty when one element is added', function () {
+    it('should not be empty when one element is added', ()=> {
         queue.enqueue("k");
         expect(queue.empty()).toBe(false);
     });
 
-    it('should have 0-size when created', function () {
+    it('should have 0-size when created', ()=> {
         expect(queue.size()).toEqual(0);
     });
 
-    it('should increase size when elements are added', function () {
+    it('should increase size when elements are added', ()=> {
         queue.enqueue("a");
         expect(queue.size()).toEqual(1);
         queue.enqueue("b");
         expect(queue.size()).toEqual(2);
     });
 
-    it('should not be empty when one element is added', function () {
+    it('should not be empty when one element is added', ()=> {
         queue.enqueue("a");
         queue.enqueue("b");
         expect(queue.size()).toEqual(2);
@@ -47,8 +47,8 @@ describe('Test Queue', function () {
     });
 
 
-    it('should return the head without dequeuing', function () {
-        expect(function () {
+    it('should return the head without dequeuing', ()=> {
+        expect(()=> {
             queue.head();
         }).toThrow(new Error("Queue is empty"));
 
