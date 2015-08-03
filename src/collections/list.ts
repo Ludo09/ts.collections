@@ -1,12 +1,8 @@
-/*
-/// <reference path="collection.ts"/>
-/// <reference path="iterator.ts"/>
-*/
-import c = require("./collection");
-import i = require("./iterator");
+import {collections as coll} from './collection';
+import {collections as iter} from './iterator';
 
 export module collections {
-    export class List<E> implements c.collections.Collection<E> {
+    export class List<E> implements coll.Collection<E> {
         private _elements:Array<E> = [];
 
         public size():number {
@@ -120,7 +116,7 @@ export module collections {
                 callbackfn.call(this, that._elements[i], i);
         }
 
-        public iterator():i.collections.Iterator<E> {
+        public iterator():iter.Iterator<E> {
             var that = this;
             return {
                 cursor: 0,

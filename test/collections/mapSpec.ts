@@ -1,16 +1,12 @@
-// tutorial: http://holtcode.blogspot.fr/2013/12/running-karma-tests-for-typescript.html
-// install: npm install jasmine-node --save-dev
-// running tests: node_modules/jasmine-node/bin/jasmine-node --autotest --color test/
-
 /// <reference path="../typings/jasmine/jasmine.d.ts"/>
 
-import m = require("../../src/collections/map");
+import {collections as coll} from '../../src/collections/map';
 
 describe('Test Map', function () {
     var map = null;
 
     beforeEach(function () {
-        map = new m.collections.Map<string, string>();
+        map = new coll.Map<string, string>();
     });
 
     afterEach(function () {
@@ -76,7 +72,7 @@ describe('Test Map', function () {
     });
 
     it('should decrement size when element is removed', function () {
-        var map = new m.collections.Map();
+        var map = new coll.Map();
         map.set("a", "b");
         map.set("c", "d");
         map.remove("a");

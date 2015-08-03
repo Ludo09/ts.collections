@@ -1,12 +1,12 @@
 /// <reference path="../typings/jasmine/jasmine.d.ts"/>
 
-import m = require("../../src/collections/queue");
+import {collections as coll} from '../../src/collections/queue';
 
 describe('Test Queue', function () {
     var queue = null;
 
     beforeEach(function () {
-        queue = new m.collections.Queue<string>();
+        queue = new coll.Queue<string>();
     });
 
     afterEach(function () {

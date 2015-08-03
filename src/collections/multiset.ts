@@ -1,14 +1,12 @@
-/// <reference path="map.ts"/>
-
-import m = require("./map");
+import {collections as coll} from './map';
 
 export module collections {
     export class Multiset<E> {
-        private _elements:m.collections.Map<E, number>;
+        private _elements:coll.Map<E, number>;
         private _size:number;
 
         constructor() {
-            this._elements = new m.collections.Map<E, number>();
+            this._elements = new coll.Map<E, number>();
             this._size = 0;
         }
 

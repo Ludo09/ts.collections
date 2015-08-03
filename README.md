@@ -10,7 +10,9 @@ First thing first: retrieving local node modules listed in package.json. You can
 npm install
 ```
 
-Then you can compile/transpile all .ts files into ES5 by doing:
+Then set your favorite IDE (Webstorm, VS Code, etc.) to understand ES6 syntax.
+
+Finally you can compile/transpile all .ts files into ES5 by doing:
 ```bash
 tsc --target es5 --modules commonjs
 ```

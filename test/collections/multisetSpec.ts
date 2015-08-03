@@ -1,12 +1,12 @@
 /// <reference path="../typings/jasmine/jasmine.d.ts"/>
 
-import m = require("../../src/collections/multiset");
+import {collections as coll} from '../../src/collections/multiset';
 
 describe('Test Multiset', function () {
     var mset = null;
 
     beforeEach(function () {
-        mset = new m.collections.Multiset<string>();
+        mset = new coll.Multiset<string>();
     });
 
     afterEach(function () {

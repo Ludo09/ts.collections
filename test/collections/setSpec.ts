@@ -1,12 +1,12 @@
 /// <reference path="../typings/jasmine/jasmine.d.ts"/>
 
-import m = require("../../src/collections/set");
+import {collections as coll} from '../../src/collections/set';
 
 describe('Test Set', function () {
     var set = null;
 
     beforeEach(function () {
-        set = new m.collections.Set<number>();
+        set = new coll.Set<number>();
     });
 
     afterEach(function () {
@@ -92,7 +92,7 @@ describe('Test Set', function () {
         set.add(2);
         set.add(3);
         set.add(4);
-        var s2 = new m.collections.Set<number>();
+        var s2 = new coll.Set<number>();
         s2.add(1);
         s2.add(3);
         s2.add(4);
@@ -106,7 +106,7 @@ describe('Test Set', function () {
     it('should return the union with specified set', function () {
         set.add(1);
         set.add(2);
-        var s2 = new m.collections.Set<number>();
+        var s2 = new coll.Set<number>();
         s2.add(2);
         s2.add(3);
         var sd = set.union(s2).entries();
@@ -121,7 +121,7 @@ describe('Test Set', function () {
         set.add(2);
         set.add(3);
         set.add(4);
-        var s2 = new m.collections.Set<number>();
+        var s2 = new coll.Set<number>();
         s2.add(1);
         s2.add(3);
         s2.add(4);

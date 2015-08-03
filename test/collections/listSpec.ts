@@ -1,12 +1,12 @@
 /// <reference path="../typings/jasmine/jasmine.d.ts"/>
 
-import m = require("../../src/collections/list");
+import {collections as coll} from '../../src/collections/list';
 
 describe('Test List', function () {
     var list = null;
 
     beforeEach(function () {
-        list = new m.collections.List<number>();
+        list = new coll.List<number>();
     });
 
     afterEach(function () {
@@ -155,7 +155,7 @@ describe('Test List', function () {
     it('should append all elements', function () {
         list.append(1);
         list.append(2);
-        var l2 = new m.collections.List<number>();
+        var l2 = new coll.List<number>();
         l2.append(3);
         l2.append(4);
         list.appendAll(l2);
@@ -179,7 +179,7 @@ describe('Test List', function () {
         list.append(1);
         list.append(2);
         list.append(5);
-        var l2 = new m.collections.List<number>();
+        var l2 = new coll.List<number>();
         l2.append(3);
         l2.append(4);
         list.addAll(2, l2);
@@ -235,7 +235,7 @@ describe('Test List', function () {
         list.append(5);
         var sumVal = 0;
         var sumIdx = 0;
-        list.forEach(function (value: number, index: number, l: m.collections.List<number>) {
+        list.forEach(function (value: number, index: number, l: coll.List<number>) {
             sumVal += value;
             sumIdx += index;
         });
