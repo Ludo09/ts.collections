@@ -9,3 +9,5 @@
 * **iterator:** first implementation of Iterator in List
 
 #### Breaking Changes
+
+* ES6 module and syntax
